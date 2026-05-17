@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Environment (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors
+.idea/
+*.swp
+*.swo
+*~
+.vscode/*
+!.vscode/extensions.json
+
+# Cursor / local tooling (safe for public GitHub)
+.cursor/
+*.cursor-upload
+uploads/
+
+# Vite / TypeScript
+.vite/
+*.tsbuildinfo
+.cache/
+
+# Claude
+.claude/
+CLAUDE.md
+
+# Playwright
+playwright-report/
+test-results/
+
+# Test / coverage
+coverage/

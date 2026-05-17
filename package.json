@@ -1,0 +1,47 @@
+{
+  "name": "dolci-eoliani",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "build": "npm run sitemap && tsc -b && vite build && node scripts/prerender.mjs",
+    "build:static": "npm run sitemap && tsc -b && vite build",
+    "build:pages": "node scripts/build-pages.mjs",
+    "prebuild": "node scripts/optimize-images.mjs",
+    "prebuild:pages": "node scripts/optimize-images.mjs",
+    "preview": "vite preview",
+    "lint": "eslint src scripts",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "license": "SEE LICENSE IN LICENSE FILE",
+  "dependencies": {
+    "@fontsource/inter": "^5.2.5",
+    "@fontsource/playfair-display": "^5.2.5",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "@tailwindcss/vite": "^4.1.8",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.28.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.2.0",
+    "tailwindcss": "^4.1.8",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.33.1",
+    "vite": "^6.3.5",
+    "@playwright/test": "^1.52.0",
+    "sharp": "^0.34.2",
+    "vitest": "^3.2.1"
+  }
+}

@@ -1,0 +1,218 @@
+@import './fonts.css';
+@import 'tailwindcss';
+
+@theme {
+  --color-mandorla: #e6d5b8;
+  --color-mandorla-dark: #b8a078;
+  --color-accent: #8a7355;
+  --color-oro-citrico: #c4a574;
+  --color-nero-carbone: #2a2420;
+  --color-bianco-crema: #faf9f6;
+  --color-surface: #faf9f6;
+  --color-background: #faf9f6;
+  --color-surface-container-low: #f4f3f1;
+  --color-surface-container: #efeeeb;
+  --color-primary: #2a2420;
+  --color-on-primary: #faf9f6;
+  --color-on-background: #2a2420;
+  --color-on-surface: #2a2420;
+  --color-on-surface-variant: #5c5348;
+  --color-secondary: #695d46;
+  --color-error: #ba1a1a;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --spacing-gutter: 32px;
+  --spacing-margin-mobile: 24px;
+  --spacing-margin-desktop: 64px;
+  --spacing-container-max: 1280px;
+  --spacing-section-y-sm: 4rem;
+  --spacing-section-y-md: 5.5rem;
+  --spacing-section-y-lg: 7rem;
+
+  --text-display-lg: 64px;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
+
+  --text-display-lg-mobile: 40px;
+  --text-display-lg-mobile--line-height: 1.2;
+  --text-display-lg-mobile--font-weight: 700;
+
+  --text-headline-md: 32px;
+  --text-headline-md--line-height: 1.3;
+  --text-headline-md--font-weight: 600;
+
+  --text-headline-sm: 24px;
+  --text-headline-sm--line-height: 1.4;
+  --text-headline-sm--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.8;
+  --text-body-lg--font-weight: 300;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.8;
+  --text-body-md--font-weight: 300;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-background text-on-background font-body antialiased;
+    font-size: var(--text-body-md);
+    line-height: var(--text-body-md--line-height);
+    font-weight: var(--text-body-md--font-weight);
+  }
+
+  ::selection {
+    @apply bg-mandorla/40 text-primary;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .text-label-caps {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .section-y-sm {
+    padding-top: var(--spacing-section-y-sm);
+    padding-bottom: var(--spacing-section-y-sm);
+  }
+
+  .section-y-md {
+    padding-top: var(--spacing-section-y-md);
+    padding-bottom: var(--spacing-section-y-md);
+  }
+
+  .section-y-lg {
+    padding-top: var(--spacing-section-y-lg);
+    padding-bottom: var(--spacing-section-y-lg);
+  }
+
+  .grain-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-none border border-primary bg-primary px-8 py-3.5 font-body text-sm font-medium tracking-wide text-on-primary normal-case transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+
+  .btn-primary:hover {
+    @apply border-mandorla-dark bg-mandorla-dark text-nero-carbone;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-none border border-primary/30 bg-transparent px-8 py-3.5 font-body text-sm font-medium tracking-wide text-primary normal-case transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+
+  .btn-secondary:hover {
+    @apply border-mandorla-dark bg-mandorla/40 text-nero-carbone;
+  }
+
+  .card-elevated {
+    @apply rounded-none border border-mandorla/30 bg-surface;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-none border border-mandorla/40 bg-transparent px-6 py-3 font-body text-sm font-medium tracking-wide text-on-surface-variant normal-case transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+
+  .btn-ghost:hover {
+    @apply border-primary/30 text-primary;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollToTopIn {
+  from {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-container-low) 0%,
+    var(--color-mandorla) 40%,
+    var(--color-surface-container-low) 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer {
+    animation: none;
+  }
+}

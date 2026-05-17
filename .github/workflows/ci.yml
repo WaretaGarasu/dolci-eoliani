@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Generate sitemap and robots.txt
+        env:
+          VITE_SITE_URL: https://dolci-eoliani.it
+        run: npm run sitemap
+
+      - run: npm run lint
+
+      - run: npm run test
+
+      - name: Install Playwright (build prerender + e2e)
+        run: npx playwright install chromium --with-deps
+
+      - name: Build
+        env:
+          VITE_SITE_URL: https://dolci-eoliani.it
+        run: npm run build
+
+      - name: E2E smoke tests
+        run: npm run test:e2e

@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# SPA routes: / and /informativa-privacy (see sitemap.xml)
+Sitemap: https://dolci-eoliani.it/sitemap.xml
