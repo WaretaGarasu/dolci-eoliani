@@ -34,16 +34,16 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
   }, [onClose])
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-end justify-center bg-nero-carbone/55 p-3 backdrop-blur-sm sm:items-center sm:p-6">
+    <div className="fixed inset-0 z-100 flex items-end justify-center bg-nero-carbone/55 p-3 backdrop-blur-sm sm:items-center sm:p-6">
       <div className="absolute inset-0 cursor-default" aria-hidden="true" onClick={onClose} />
       <div
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="product-modal-title"
-        className="relative z-10 flex max-h-[min(92vh,900px)] w-full max-w-2xl flex-col overflow-hidden rounded-[2rem] border border-mandorla/35 bg-surface shadow-xl"
+        className="relative z-10 flex max-h-[min(92vh,900px)] w-full max-w-2xl flex-col overflow-hidden rounded-4xl border border-mandorla/35 bg-surface shadow-xl"
       >
-        <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-t-[2rem] md:aspect-[16/10]">
+        <div className="relative aspect-4/3 w-full shrink-0 overflow-hidden rounded-t-4xl md:aspect-16/10">
           <ProductImage product={product} priority className="h-full w-full object-cover" />
           <button
             type="button"

@@ -66,7 +66,7 @@ export function Navbar({ activeSection = '' }: NavbarProps) {
       bodyStyle.right = ''
       bodyStyle.width = ''
       htmlStyle.overflow = ''
-      window.scrollTo(0, scrollY)
+      window.scrollTo({ top: scrollY, left: 0, behavior: 'instant' })
     }
   }, [menuOpen])
 
@@ -114,7 +114,7 @@ export function Navbar({ activeSection = '' }: NavbarProps) {
     >
       <PageContainer
         ref={headerRef}
-        className={`relative z-[52] flex items-center justify-between py-4 ${menuOpen ? 'bg-surface' : ''}`}
+        className={`relative z-52 flex items-center justify-between py-4 ${menuOpen ? 'bg-surface' : ''}`}
       >
         <Link
           to="/"
@@ -168,7 +168,7 @@ export function Navbar({ activeSection = '' }: NavbarProps) {
         <>
           <button
             type="button"
-            className="fixed inset-x-0 bottom-0 z-[51] bg-nero-carbone/15 backdrop-blur-[3px] motion-reduce:backdrop-blur-none lg:hidden"
+            className="fixed inset-x-0 bottom-0 z-51 bg-nero-carbone/40 backdrop-blur-md motion-reduce:backdrop-blur-none lg:hidden"
             style={{ top: navHeight }}
             onClick={closeMenu}
             aria-label={COPY.a11y.closeMenu}
@@ -179,7 +179,7 @@ export function Navbar({ activeSection = '' }: NavbarProps) {
             role="dialog"
             aria-modal="true"
             aria-label={COPY.a11y.openMenu}
-            className="fixed inset-x-0 z-[52] border-t border-mandorla/30 bg-surface shadow-lg lg:hidden"
+            className="fixed inset-x-0 z-52 border-t border-mandorla/30 bg-surface shadow-lg lg:hidden"
             style={{ top: navHeight }}
           >
             <PageContainer className="flex flex-col gap-1 py-5">

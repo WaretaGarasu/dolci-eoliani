@@ -19,7 +19,7 @@ export function SiteLayout({
     <div className="flex min-h-dvh flex-col">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:border focus:border-primary focus:bg-surface focus:px-4 focus:py-2 focus:font-body focus:text-sm focus:text-primary"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-60 focus:border focus:border-primary focus:bg-surface focus:px-4 focus:py-2 focus:font-body focus:text-sm focus:text-primary"
       >
         {COPY.a11y.skipToContent}
       </a>
