@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { COPY } from '../data/copy'
 import { buildContactWhatsAppMessage, buildWhatsAppUrl } from '../utils/whatsapp'
 import { FloatingInput } from './FloatingInput'
@@ -13,6 +13,18 @@ export function ContactForm({ className = '' }: ContactFormProps) {
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    if (!submitted) return
+    const id = setTimeout(() => setSubmitted(false), 3000)
+    return () => clearTimeout(id)
+  }, [submitted])
+
+  useEffect(() => {
+    if (!error) return
+    const id = setTimeout(() => setError(''), 4000)
+    return () => clearTimeout(id)
+  }, [error])
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()

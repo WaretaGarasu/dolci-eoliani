@@ -103,9 +103,10 @@ export function Navbar({ activeSection = '' }: NavbarProps) {
   }
 
   return (
+    <>
     <nav
       aria-label="Navigazione principale"
-      className={`sticky top-0 z-50 w-full border-b backdrop-blur-md transition-colors duration-300 motion-reduce:transition-none ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full border-b backdrop-blur-md transition-colors duration-300 motion-reduce:transition-none ${
         scrolled
           ? 'border-mandorla/40 bg-surface/95'
           : 'border-mandorla/25 bg-surface/80'
@@ -210,5 +211,7 @@ export function Navbar({ activeSection = '' }: NavbarProps) {
         </>
       )}
     </nav>
+    <div aria-hidden="true" style={{ height: navHeight }} className="shrink-0" />
+    </>
   )
 }
